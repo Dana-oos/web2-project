@@ -4,14 +4,16 @@ background-color:  #c1f9ca;
 }
 
 
+
+
 .site-footer {
-  background-color: #F5F5DC;              /* نفس خلفية الهيدر */
-  border: 1px solid #ddd;                /* نفس حدود الهيدر */
-  border-radius: 12px;                   /* نفس الحواف */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); /* نفس الظل */
+  background-color: #F5F5DC;             
+  border: 1px solid #ddd;                
+  border-radius: 12px;                  
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   padding: 30px 40px;
   margin: 40px auto 20px;
-  width: min(1100px, 95%);               /* نفس عرض الهيدر */
+  width: min(1100px, 95%);               
 }
 
 
@@ -50,12 +52,12 @@ background-color:  #c1f9ca;
 
 .site-header {
   background: #F5F5DC;            
-  border: 1px solid #ddd;           /* حدود خفيفة حول الهيدر */
-  border-radius: 12px;              /* حواف ناعمة (اختياري) */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);  /* ظل خفيف يعطي بُعد */
-  margin: 16px auto;                /* مسافة من أعلى الصفحة */
-  width: min(1100px, 95%);          /* يخليه بنفس عرض محتوى الموقع */
-  padding:  0;                   /* تباعد بسيط داخل البوكس */
+  border: 1px solid #ddd;           
+  border-radius: 12px;              
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);  
+  margin: 16px auto;               
+  width: min(1100px, 95%);         
+  padding:  0;                  
 }
 .nav {
   height: 100px;
@@ -63,15 +65,15 @@ background-color:  #c1f9ca;
   align-items: center;
   justify-content: space-between;
     gap: 20px;
-     padding: 0 20px;            /* horizontal padding only */
+     padding: 0 20px;            
   
 }
 .logo-area {
   display: flex;
   align-items: center;
-  gap: 2px;              /* مسافة بين اللوقو والاسم */
+  gap: 2px;             
   min-width: 15px;
-  white-space: nowrap;    /* يمنع نزول النص لسطر جديد */
+  white-space: nowrap;    
 }
 
 .logo-area img {
@@ -87,16 +89,16 @@ font-weight: 700;
 letter-spacing: 0.5px;  color: #1e1e1e;
   font-family: 'Poppins', sans-serif;
   margin: 0;
-  line-height: 1;          /* يقلل المسافة بين الأسطر */
+  line-height: 1;          
 }
 
 .site-name .black {
-  color: #1e1e1e; /* أسود أو رمادي غامق */
+  color: #1e1e1e; 
 }
 
 .site-name .gold {
-  color: #C5A572; /* ذهبي ناعم */
-  margin-left: 4px; /* مسافة بسيطة بين الكلمتين */
+  color: #C5A572; 
+  margin-left: 4px; 
 }
 
 .social-icons img {
