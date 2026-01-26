@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheet.css">
+
+  <style>
+
+.title-with-lines{
+  display: flex;            
+  align-items: center;
+  justify-content: center;
+  gap: 16px;                 
+  font-weight: 600;
+  color: 228B22;
+}
+
+.title-with-lines::before,
+.title-with-lines::after{
+  content: "";
+  flex: 1;                  
+  border-bottom: 1px solid #228B22;  
+  height: 0;
+}
+
+#recipeimg{
+height: 350px;
+width: 280px;
+margin-left :60%;
+margin-top: 10%;
+border-radius: 10px;
+ transition: 0.3s ease;
+}
+#recipeimg:hover{
+ filter: none;
+  transform: scale(1.15);
+}
+
+.feedbackIcons{
+  display: flex;
+  height:30px;
+  width:30px;
+  margin-left: 83%;
+  margin-bottom: 2%;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 50%;
+
+}
+
+.feedbackIcons img{
+     transition: 0.3s ease;
+}
+
+.feedbackIcons img:hover{
+filter: none;
+transform: scale(1.15);
+}
+
+.recipe-media{
+  position: absolute;
+  top:230px;
+  right:250px;
+}
+
+/*ul {
+  
+  list-style-image: url("star.png");
+  list-style-position: outside;
+  padding-left: 40%;
+  height: 20px;
+  width:20px;
+}*/
+
+video{
+  margin-top: -4%;
+}
+
+#recipeCreator{
+height : 400px;
+width:300px;
+margin-left: 40%;
+border-radius: 10%;
+ transition: 0.3s ease;
+}
+
+#recipeCreator:hover{
+filter: none;
+transform: scale(1.15);
+}
+
+#creatore-name{
+  margin-left: 47%;
+  font-size:200%;
+  font-style: oblique;
+}
+h2{
+  margin-top: 48px;
+  margin-bottom: 30px;
+  margin-left: 7px;
+}
+.reviews {
+      text-align: center;
+      padding: 60px 15px;
+      background-color: #fff;
+      border-radius: 20px;
+      width: min(1100px, 95%);
+      margin: 50px auto;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .reviews h2 {
+      font-size: 2rem;
+      color: #1e1e1e;
+      margin-bottom: 6px;
+    }
+
+    .reviews p {
+      color: #666;
+      margin-bottom: 35px;
+      font-size: 1rem;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px 40px;
+      justify-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .review-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      padding: 20px 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      width: 95%;
+      max-width: 560px;
+      height: 140px;
+      transition: 0.3s ease;
+    }
+
+    .review-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    }
+
+
+    .review-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+    }
+
+    .review-text {
+      font-size: 0.9rem;
+      color: #333;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .review-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #eee;
+      padding-top: 6px;
+    }
+
+
+    .client-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #000;
+    }
+
+    .stars {
+      color: #c5a572;
+      font-size: 0.9rem;
+    }
+
+    .reviews {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .reviews h2,
+    .reviews p {
+      background: transparent;
+      box-shadow: none;
+      border: none;
+      margin-bottom: 10px;
+    }
+
+    .reviews-grid {
+      margin-top: 40px;
+    }
+
+
+  </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container nav">
+            <div class="logo-area">
+                 <img src="logoremoved.png" alt="Nurish logo">
+              
+            <p id ='VMstatement'><em>Healthy never tasted this fun...</em>  </p>
+            </div>
+
+
+            <nav class="main-nav" aria-label="Primary"> </nav>
+
+             <div class="nav-actions">
+                 <input id="site-search" type="search" placeholder="Search…" >
+                 <a class="avatar" href="#" aria-label="Profile">
+                 <span aria-hidden="true">👤</span>
+                 </a>
+             </div>
+        </div>
+    </header>
+
+
+<h1 class="title-with-lines"><em>Banana pancake</em></h1>
+
+<h2> <em>Recipe's Details</em> </h4>
+  <p> category: Gluten-free <br> <br> desciption : these 3 ingredient banana pancakes are
+  quick , healthy  and ready in minutes !
+<br> they are perfect for busr mornings , toddlers or meal prep . on top of that it's vegan , gluten-free , naturally sweetened 
+and oil-free! </p>
+
+<br>
+
+  <h2> <em>Recipe's ingredients :</em></h2>
+
+  <ul>
+<li>1 Banana</li>
+<li>3/4 cup of Oats</li>
+<li>1/2 cup of Non-Dairy Milk</li>
+<li> Blueberries the the quantity is based on your personal prefrence  </li>
+</ul>
+
+<br>
+
+  <h2> <em>Recipe's ingredients :</em></h2>
+
+  <ol>
+    <li> first <b> blend the ingredients : </b> Add the banana, oats, and non-dairy milk to a blender.
+       Toss in any optional add-ins, like cinnamon or vanilla extract. Blend until smooth. 
+       If you’re using blueberries or chocolate chips, gently stir them in after blending.</li>
+
+       <li> <b> Cook the Pancakes :</b>Heat a non-stick skillet over medium-low heat. Pour the batter into small pancakes (about 1/4 cup each). Cook for 2–3 minutes, 
+        or until bubbles form on the surface and the edges start to set.</li>
+
+        <li> <b> Flip & Finish:</b>
+Flip the pancakes and cook for another 1–2 minutes, until golden brown and cooked through. 
+Serve warm with your favorite toppings. Enjoy!
+        </li>
+  </ol>
+
+  <br>
+
+  <h2> <em> Recipe's video : </em></h2>
+  <video src ='recipe.mp4' width="550" height="450" poster="thumbnail.png" controls>
+    
+  </video>
+
+<h2> <em> Recipe's creator : </em></h2>
+<img src="creatorPic.png" alt="Recipe's creator picture" id="recipeCreator">
+<p id="creatore-name"> Megan</p>
+
+
+
+
+
+
+  <div class ="recipe-media">
+<div class="feedbackIcons">
+  <img src="likeicon.png" alt ="like recipe icon">
+  <img src="favouritesicon.png" alt="add to favourit icon">
+  <img src="reporticon.png" alt="report a recipe">
+</div>
+
+<img src="pancake.jpeg" alt="Recipe photo" id="recipeimg">
+</div>
+
+
+
+  
+  <section class="reviews">
+    <h2>Comments</h2>
+    <p>we would love to hear about youe experience !</p>
+
+    <div class="reviews-grid">
+
+      <!-- Review 1 -->
+      <div class="review-card">
+    
+        <div class="review-content">
+          <p class="review-text">
+            "These banana pancakes have been at the top of my breakfast list for a while now.
+  They’re quick and easy to make, and they taste absolutely delicious!"
+          </p>
+          <div class="review-footer">
+            <h4 class="client-name">Amal Fahad</h4>
+            
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 2 -->
+      <div class="review-card">
+      
+        <div class="review-content">
+          <p class="review-text">
+            "Wow , it looks very tasty i need to try it ASAP."
+          </p>
+          <div class="review-footer">
+            <h4 class="client-name">Haya Abdulaziz</h4>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 3 -->
+      <div class="review-card">
+        
+        <div class="review-content">
+          <p class="review-text">
+            "thanks for sharing the recipe! Looking forward to more healthy and tasty dishes."
+          </p>
+          <div class="review-footer">
+            <h4 class="client-name">Laila omar</h4>
+          
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 4 -->
+      <div class="review-card">
+        
+        <div class="review-content">
+          <p class="review-text">
+           "these pancakes are one of the most delicious Non-Dairy recipes , if you haven't try them yet what are you waiting for?"
+          </p>
+          <div class="review-footer">
+            <h4 class="client-name">Sara Mohammed</h4>
+           
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+    
+ <footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-left">
+      <h3>Contact Us</h3>
+      <p>📞 +966 565212266</p>
+      <p>✉️ info@Nurish.com</p>
+    </div>
+
+    <div class="footer-center">
+      <p>© 2026 Nurish All Rights Reserved.</p>
+    </div>
+
+    <div class="footer-right">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+           <a href="#"><img src="instagram.png" alt="Instagram"></a>
+        <a href="#"><img src="X.png" alt="X"></a>
+        <a href="#"><img src="facebook.png" alt="Facebook"></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+</html>
+
