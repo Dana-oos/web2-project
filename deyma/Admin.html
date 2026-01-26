@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Dashboard | Nourish</title>
+
+  <style>
+    :root{
+      --primary:#97A453;
+      --primary2:#ADB580;
+      --beige:#E8E0C0;
+      --bg:#F3F2DD;
+
+      --text:#2a2a2a;
+      --muted:#6b7280;
+      --line:rgba(0,0,0,.08);
+
+      --radius:18px;
+      --shadow: 0 18px 40px rgba(0,0,0,.08);
+    }
+
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
+
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1100px 520px at 20% -10%, rgba(151,164,83,.18), transparent 60%),
+        radial-gradient(900px 520px at 80% 0%, rgba(232,224,192,.55), transparent 55%),
+        var(--bg);
+    }
+
+    .page{
+      width: min(1100px, 92vw);
+      margin: 28px auto 48px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:14px 16px;
+      border-radius:var(--radius);
+      background: rgba(255,255,255,.8);
+      border: 1px solid rgba(255,255,255,.9);
+      box-shadow: var(--shadow);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+
+    .logo{
+      width:44px;
+      height:44px;
+      object-fit:contain;
+      border-radius:14px;
+      border:1px solid rgba(151,164,83,.22);
+      background: rgba(255,255,255,.9);
+      padding:6px;
+      flex:0 0 auto;
+      display:block;
+    }
+
+    .titleWrap{ min-width:0; }
+
+    .welcome{
+      margin:0;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.2;
+      white-space: nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+    }
+
+    .subtitle{
+      margin-top:4px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .logout{
+      text-decoration:none;
+      font-weight:700;
+      color: var(--primary);
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(151,164,83,.25);
+      background: rgba(255,255,255,.85);
+      white-space: nowrap;
+    }
+    .logout:hover{ background: rgba(151,164,83,.12); }
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+    }
+
+    .card{
+      background: rgba(255,255,255,.8);
+      border: 1px solid rgba(255,255,255,.9);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:16px;
+    }
+
+    .cardTitle{
+      margin:0 0 12px;
+      font-size: 16px;
+      font-weight: 700;
+      color:#333;
+    }
+
+    .infoLines{
+      display:grid;
+      gap:10px;
+    }
+
+    .line{
+      display:flex;
+      gap:8px;
+      align-items:baseline;
+      font-size: 14px;
+      padding:10px 12px;
+      border-radius: 14px;
+      background: rgba(243,242,221,.7);
+      border: 1px solid rgba(151,164,83,.14);
+    }
+
+    .label{ font-weight:700; color:#3a3a3a; }
+    .value{ color:#555; }
+
+    .stats{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top: 6px;
+    }
+
+    .stat{
+      text-align:center;
+      padding:16px 12px;
+      border-radius: 16px;
+      background: rgba(232,224,192,.55);
+      border: 1px solid rgba(151,164,83,.18);
+    }
+    .statNum{
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1;
+    }
+    .statLabel{
+      margin-top: 8px;
+      font-size: 12px;
+      color:#666;
+    }
+
+    .section{
+      display:grid;
+      gap:10px;
+    }
+
+    .sectionHead{
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      gap:12px;
+      padding: 0 4px;
+    }
+
+    .sectionTitle{
+      margin:0;
+      font-size: 16px;
+      font-weight: 700;
+      color:#333;
+    }
+
+    .hint{
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .tableCard{
+      background: rgba(255,255,255,.8);
+      border: 1px solid rgba(255,255,255,.9);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:auto;
+    }
+
+    table{
+      width:100%;
+      border-collapse: collapse;
+      min-width: 820px;
+    }
+
+    thead th{
+      text-align:left;
+      padding:14px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      background: rgba(232,224,192,.7);
+      color:#333;
+    }
+
+    tbody td{
+      padding:16px;
+      border-top:1px solid var(--line);
+      vertical-align: middle;
+      font-size: 14px;
+    }
+
+    .recipeLink{
+      color: var(--primary);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .recipeLink:hover{ text-decoration: underline; }
+
+    .creator{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 0;
+    }
+
+    .avatar{
+      width:64px;
+      height:64px;
+      border-radius: 16px;
+      overflow:hidden;
+      border:1px solid rgba(151,164,83,.22);
+      background: rgba(151,164,83,.10);
+      font-weight: 800;
+      color:#666;
+      flex: 0 0 auto;
+      line-height:64px;  
+      text-align:center;
+    }
+
+    .avatar img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+    }
+
+    .creatorName{
+      margin:0;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .creatorEmail{
+      margin:4px 0 0;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.2;
+    }
+
+    .pill{
+      display:inline-block;
+      padding:10px 12px;
+      border-radius:999px;
+      background: rgba(255,255,255,.85);
+      border: 1px solid rgba(151,164,83,.18);
+      cursor:pointer;
+      user-select:none;
+      font-size: 13px;
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+
+    .btn{
+      border:0;
+      cursor:pointer;
+      background: var(--primary);
+      color:#fff;
+      font-weight:700;
+      padding:10px 16px;
+      border-radius:999px;
+      box-shadow: 0 14px 25px rgba(151,164,83,.22);
+    }
+
+    .toast{
+      position: fixed;
+      left: 18px;
+      bottom: 18px;
+      display:none;
+      background: rgba(34,34,34,.92);
+      color:#fff;
+      padding:12px 14px;
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      max-width: min(420px, 92vw);
+      font-size: 13px;
+    }
+
+    @media (max-width: 950px){
+      .grid2{ grid-template-columns: 1fr; }
+      table{ min-width: 780px; }
+      .welcome{ font-size: 22px; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <header class="topbar">
+      <div class="brand">
+        <img class="logo" id="logoImg" src="logo.png" alt="Nourish Logo">
+
+        <div class="titleWrap">
+          <h1 class="welcome">Welcome, <span id="adminFirstName">Admin</span></h1>
+          <div class="subtitle">Admin Dashboard</div>
+        </div>
+      </div>
+
+      <a class="logout" href="index.html">Log out</a>
+    </header>
+
+    <section class="grid2">
+      <div class="card">
+        <h2 class="cardTitle">My Information</h2>
+        <div class="infoLines">
+          <div class="line"><span class="label">Name:</span> <span class="value" id="adminName">Admin</span></div>
+          <div class="line"><span class="label">Email:</span> <span class="value" id="adminEmail">admin@email.com</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="cardTitle">Overview</h2>
+        <div class="stats">
+          <div class="stat">
+            <div class="statNum" id="pendingCount">0</div>
+            <div class="statLabel">Pending Reports</div>
+          </div>
+          <div class="stat">
+            <div class="statNum" id="blockedCount">0</div>
+            <div class="statLabel">Blocked Users</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="sectionHead">
+        <h2 class="sectionTitle">Reported Recipes</h2>
+      </div>
+
+      <div class="tableCard">
+        <table>
+          <thead>
+            <tr>
+              <th>Recipe Name</th>
+              <th>Recipe Creator</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="reportsTbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="sectionHead">
+        <h2 class="sectionTitle">Blocked Users List</h2>
+      </div>
+
+      <div class="tableCard">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email Address</th>
+            </tr>
+          </thead>
+          <tbody id="blockedTbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="toast" id="toast"></div>
+  </main>
+
+  <script>
+    function byId(id){
+      return document.getElementById(id);
+    }
+
+    function makeInitials(name){
+      if(!name){ return "?"; }
+      var parts = name.replace(/^\s+|\s+$/g, "").split(/\s+/);
+      var a = parts[0] ? parts[0].charAt(0) : "";
+      var b = parts.length > 1 ? parts[1].charAt(0) : "";
+      var s = (a + b).toUpperCase();
+      return s ? s : "?";
+    }
+
+    function showToast(msg){
+      var t = byId("toast");
+      t.innerHTML = msg;
+      t.style.display = "block";
+      window.clearTimeout(showToast._timer);
+      showToast._timer = window.setTimeout(function(){
+        t.style.display = "none";
+      }, 1800);
+    }
+
+    var admin = {
+      firstName: "Deyma",
+      name: "Deyma",
+      email: "deymasase@gmail.com"
+    };
+
+    var reportedRecipes = [
+      {
+        id: 102,
+        recipeName: "Acai Bowl",
+        recipeUrl: "view-recipe.html",
+        creatorName: "Sara",
+        creatorEmail: "sara@hotmail.com",
+        creatorPhoto: "images/girl2.jpeg"
+      },
+      {
+        id: 103,
+        recipeName: "Banana Pancakes",
+        recipeUrl: "view-recipe.html",
+        creatorName: "Dana",
+        creatorEmail: "dana@gmail.com",
+        creatorPhoto: "images/girl3.jpeg"
+      }
+    ];
+
+    var blockedUsers = [
+      { name: "Preppy Kitchen", email: "pkitchen@gmail.com" }
+    ];
+
+    byId("adminFirstName").innerHTML = admin.firstName;
+    byId("adminName").innerHTML = admin.name;
+    byId("adminEmail").innerHTML = admin.email;
+
+    byId("pendingCount").innerHTML = String(reportedRecipes.length);
+    byId("blockedCount").innerHTML = String(blockedUsers.length);
+
+    var reportsTbody = byId("reportsTbody");
+
+    for(var i=0; i<reportedRecipes.length; i++){
+      var r = reportedRecipes[i];
+
+      var tr = document.createElement("tr");
+
+      var tdRecipe = document.createElement("td");
+      var a = document.createElement("a");
+      a.className = "recipeLink";
+      a.href = r.recipeUrl;
+      a.innerHTML = r.recipeName;
+      tdRecipe.appendChild(a);
+
+      var tdCreator = document.createElement("td");
+      var creatorWrap = document.createElement("div");
+      creatorWrap.className = "creator";
+
+      var avatar = document.createElement("div");
+      avatar.className = "avatar";
+
+      if(r.creatorPhoto){
+        var img = document.createElement("img");
+        img.src = r.creatorPhoto;
+        img.alt = r.creatorName;
+        img.onerror = (function(av, nm){
+          return function(){
+            av.innerHTML = makeInitials(nm);
+          };
+        })(avatar, r.creatorName);
+        avatar.appendChild(img);
+      }else{
+        avatar.innerHTML = makeInitials(r.creatorName);
+      }
+
+      var meta = document.createElement("div");
+
+      var pName = document.createElement("p");
+      pName.className = "creatorName";
+      pName.innerHTML = r.creatorName;
+
+      var pEmail = document.createElement("p");
+      pEmail.className = "creatorEmail";
+      pEmail.innerHTML = r.creatorEmail;
+
+      meta.appendChild(pName);
+      meta.appendChild(pEmail);
+
+      creatorWrap.appendChild(avatar);
+      creatorWrap.appendChild(meta);
+      tdCreator.appendChild(creatorWrap);
+
+      var tdAction = document.createElement("td");
+      var form = document.createElement("form");
+
+      form.setAttribute("data-report-id", String(r.id));
+
+      var label1 = document.createElement("label");
+      label1.className = "pill";
+      var rb1 = document.createElement("input");
+      rb1.type = "radio";
+      rb1.name = "action_" + r.id;
+      rb1.value = "block";
+      rb1.checked = true;
+      label1.appendChild(rb1);
+      label1.appendChild(document.createTextNode(" Block User"));
+
+      var label2 = document.createElement("label");
+      label2.className = "pill";
+      var rb2 = document.createElement("input");
+      rb2.type = "radio";
+      rb2.name = "action_" + r.id;
+      rb2.value = "dismiss";
+      label2.appendChild(rb2);
+      label2.appendChild(document.createTextNode(" Dismiss Report"));
+
+      var br = document.createElement("div");
+      br.style.height = "4px";
+
+      var btn = document.createElement("button");
+      btn.className = "btn";
+      btn.type = "submit";
+      btn.innerHTML = "Submit";
+
+      form.appendChild(label1);
+      form.appendChild(label2);
+      form.appendChild(br);
+      form.appendChild(btn);
+
+      form.onsubmit = (function(){
+        return function(e){
+          e.preventDefault();
+
+          var reportId = this.getAttribute("data-report-id");
+          var inputs = this.getElementsByTagName("input");
+          var choice = "";
+
+          for(var k=0; k<inputs.length; k++){
+            if(inputs[k].type === "radio" && inputs[k].checked){
+              choice = inputs[k].value;
+              break;
+            }
+          }
+
+          if(choice === "block"){
+            showToast("Selected: Block User (Report #" + reportId + ") - placeholder.");
+          }else{
+            showToast("Selected: Dismiss Report (Report #" + reportId + ") - placeholder.");
+          }
+        };
+      })();
+
+      tdAction.appendChild(form);
+
+      tr.appendChild(tdRecipe);
+      tr.appendChild(tdCreator);
+      tr.appendChild(tdAction);
+
+      reportsTbody.appendChild(tr);
+    }
+
+    var blockedTbody = byId("blockedTbody");
+    for(var j=0; j<blockedUsers.length; j++){
+      var u = blockedUsers[j];
+      var tr2 = document.createElement("tr");
+
+      var td1 = document.createElement("td");
+      td1.innerHTML = u.name;
+
+      var td2 = document.createElement("td");
+      td2.innerHTML = u.email;
+
+      tr2.appendChild(td1);
+      tr2.appendChild(td2);
+
+      blockedTbody.appendChild(tr2);
+    }
+
+    var logo = byId("logoImg");
+    logo.onerror = function(){
+      this.style.display = "none";
+    };
+  </script>
+</body>
+</html>
