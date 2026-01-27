@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nourish | User</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<a href="login.html" class="logout">
+<img src="images/log-out.png">
+</a>
+
+<h1 class="welcome">Welcome, Manar 🌿</h1>
+
+<div class="grid">
+
+<!-- My Information -->
+<div class="card info">
+<img src="images/profile.png" class="profile">
+<h3>My Information</h3>
+<p><strong>Name:</strong> Manar</p>
+<p><strong>Email:</strong> manar@email.com</p>
+</div>
+
+<!-- Stats -->
+<div class="card stats">
+<h3>My Recipes</h3>
+
+<div class="stats-box">
+<div>
+<span>15</span>
+<p>Total Recipes</p>
+</div>
+
+<div>
+<span>132</span>
+<p>Total Likes</p>
+</div>
+</div>
+</div>
+
+<!-- Recipes (Full Width) -->
+<div class="card table-card">
+<h3>All Available Recipes</h3>
+
+<div class="filter">
+<select>
+<option>All Categories</option>
+<option>Gluten-free</option>
+<option>Dairy-free</option>
+<option>Sugar-free</option>
+</select>
+<button>Filter</button>
+</div>
+
+<table>
+<tr>
+<th>Recipe</th>
+<th>Photo</th>
+<th>Creator</th>
+<th>Likes</th>
+<th>Category</th>
+</tr>
+
+<tr>
+<td><a href="recipe.html">Low-Carb Cheesecake</a></td>
+
+<td>
+<a href="recipe.html">
+<img src="images/cheesecake.png">
+</a>
+</td>
+
+<td>
+<a href="profile.html">
+Manar<br>
+<img src="images/profile.png" class="mini">
+</a>
+</td>
+
+<td>40</td>
+<td><span class="cat gluten">Gluten-free</span></td>
+</tr>
+
+<tr>
+<td><a href="recipe.html">Acai Bowl </a></td>
+
+<td>
+<img src="images/AcaiBowl.png">
+</td>
+
+<td>
+Sara<br>
+<img src="images/profile.png" class="mini">
+</td>
+
+<td>28</td>
+<td><span class="cat sugar">Sugar-free</span></td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+<!-- Favourite -->
+
+<div class="card fav">
+<h3>My Favourite Recipes ❤️</h3>
+
+<div class="fav-item">
+
+<a href="recipe.html">
+<img src="images/cookies.jpg">
+</a>
+
+<div>
+<h4><a href="recipe.html">Sugar-Free Cookies</a></h4>
+<button class="remove">Remove</button>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
