@@ -1,8 +1,16 @@
-body
-{
-background-color:  #c1f9ca;
-}
 
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #f6f9f0 0%,
+    #e9f0d6 35%,
+    #d9e6b8 70%,
+    #c6d89a 100%
+  );
+}
 
 
 
