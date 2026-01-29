@@ -1,0 +1,265 @@
+/* Body */
+body {
+  background-color: #D6E6BB;
+  font-family: Arial, sans-serif;
+}
+
+/* ================= HEADER ================= */
+
+.site-header {
+	display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+  background: #F5F5DC;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  margin: 16px auto;
+  width: min(1100px, 95%);
+  padding: 0;
+}
+
+.nav {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 15px;
+  white-space: nowrap;
+}
+
+.logo-area img {
+  width: 190px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+#VMstatement {
+  font-family: serif;
+  color: #556B2F;
+}
+
+
+.welcome-box {
+  background: #F5F5DC;
+  width: 70%;
+  margin: 60px auto;
+  padding: 50px 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  animation: fadeIn 1s ease-in-out;
+}
+
+
+
+
+
+
+/* Search + Avatar */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-actions input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  outline: none;
+}
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  background: #ddd;
+  border-radius: 50%;
+  font-size: 18px;
+}
+
+/* ================= MAIN SECTION ================= */
+
+.main-section {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.main-section h1 {
+  font-size: 2.4rem;
+  font-family: times new roman;
+  color: #556B2F;
+  margin-bottom: 15px;
+}
+
+.main-section p {
+  color: #444;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+   font-family: times new roman;
+
+}
+
+/* Buttons */
+
+.btn {
+  padding: 12px 28px;
+  background-color: #556B2F;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+  display: inline-block;
+  margin: 5px;
+  font-family: times new roman;
+  font-size: larger;
+
+}
+
+.btn:hover {
+
+   background-color: #6B8E23;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+
+}
+
+/* ================= FORM ================= */
+
+body{
+	
+	background: linear-gradient(
+    135deg,
+    #f6f9f0 0%,
+    #e9f0d6 35%,
+    #d9e6b8 70%,
+    #c6d89a 100%
+  );
+
+  color: #6b6a58;
+	
+	
+}
+.form-box {
+      background-color: #F5F5DC;
+  max-width: 420px;
+  margin: 60px auto;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.form-box h2 {
+  text-align: center;
+  color: #556B2F;
+  margin-bottom: 20px;
+    font-family: times new roman;
+	font-size: 30px;
+
+}
+
+.form-box label {
+  font-weight: bold;
+  margin-top: 15px;
+  display: block;
+  color: #333;
+  font-family: times new roman;
+  font-size: larger ;
+
+}
+
+.form-box input {
+  width: 100%;
+  padding: 9px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+  
+}
+
+.form-box small {
+  color: gray;
+  font-size: 12px;
+}
+
+/* ================= FOOTER ================= */
+
+.site-footer {
+  background-color: #F5F5DC;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  padding: 30px 40px;
+  margin: 40px auto 20px;
+  width: min(1100px, 95%);
+}
+
+
+
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
+}
+
+.footer-left h3,
+.footer-right h3 {
+  font-size: 18px;
+  color: #c5a572;
+  margin-bottom: 8px;
+}
+
+.footer-left p,
+.footer-center p,
+.footer-right p {
+  color: #333;
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.footer-center p {
+  font-weight: 500;
+  color: #555;
+}
+
+/* Social Icons */
+
+.social-icons img {
+  width: 26px;
+  margin: 0 6px;
+  filter: grayscale(40%);
+  transition: 0.3s ease;
+}
+
+.social-icons img:hover {
+  filter: none;
+  transform: scale(1.15);
+}
