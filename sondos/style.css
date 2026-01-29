@@ -1,11 +1,3 @@
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
-*/
-/* 
-    Created on : Jan 28, 2026, 2:05:12 PM
-    Author     : sondos
-*/
 
 :root {
 --primary: #8FAE3B;
@@ -124,4 +116,20 @@ select:focus {
 }
 .btn-secondary { 
     background: #eee; 
+}
+.card{
+background:var(--card);
+padding:22px;
+border-radius:22px;
+box-shadow:0 10px 25px rgba(0,0,0,.05);
+display:flex;
+flex-direction:column;
+gap:12px;
+transition:.25s;
+margin-top: 10px;
+}
+
+.card:hover{
+transform:translateY(-4px);
+box-shadow:0 15px 35px rgba(0,0,0,.08);
 }
