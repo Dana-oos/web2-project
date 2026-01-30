@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Admin</title>
-  <link rel="stylesheet" href="../stylesheet.css">
+  <link rel="stylesheet" href="stylesheet.css">
 
   <style>
   
@@ -249,19 +249,6 @@
       .grid2{ grid-template-columns: 1fr; }
       table{ min-width: 780px; }
     }
-	body{
-	  margin: 0;
-	  font-family: Arial, sans-serif;
-	  min-height: 100vh;
-	  background: linear-gradient(
-		135deg,
-		#f6f9f0 0%,
-		#e9f0d6 35%,
-		#d9e6b8 70%,
-		#c6d89a 100%
-	  );
-	  color: #6b6a58;
-	}
 
 
 		.card,
@@ -332,7 +319,7 @@
 
       <div class="nav-actions">
         <input id="site-search" type="search" placeholder="Search…">
-        <a class="logout-link" href="index.html">Log out</a>
+        <a class="logout-link" href="index.html">Sign out</a>
       </div>
     </div>
   </header>
@@ -453,25 +440,17 @@
 
     var reportedRecipes = [
       {
-        id: 102,
-        recipeName: "Acai Bowl",
-        recipeUrl: "view-recipe.html",
-        creatorName: "Sara",
-        creatorEmail: "sara@hotmail.com",
-        creatorPhoto: "girl2.jpeg"
-      },
-      {
         id: 103,
         recipeName: "Banana Pancakes",
-        recipeUrl: "view-recipe.html",
+        recipeUrl: "../Dana/viewRecipe.html",
         creatorName: "Dana",
-        creatorEmail: "dana@gmail.com",
-        creatorPhoto: "girl3.jpeg"
+        creatorEmail: "Megan@gmail.com",
+        creatorPhoto: "creatorPic.png"
       }
     ];
 
     var blockedUsers = [
-      { name: "Preppy Kitchen", email: "pkitchen@gmail.com" }
+      { name: "Preppy Kitchen", email: "pkitchen@gmail.com" }, { name: "DeymaSsS", email: "deyma@gmail.com" }
     ];
 
     byId("adminFirstName").innerHTML = admin.firstName;
