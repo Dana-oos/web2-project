@@ -1,107 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="stylesheet.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="stylesheet.css" />
 
   <style>
+    .title-with-lines{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      font-weight: 600;
+      color: #228B22;
+    }
 
-.title-with-lines{
-  display: flex;            
-  align-items: center;
-  justify-content: center;
-  gap: 16px;                 
-  font-weight: 600;
-  color: 228B22;
-}
+    .title-with-lines::before,
+    .title-with-lines::after{
+      content: "";
+      flex: 1;
+      border-bottom: 1px solid #228B22;
+      height: 0;
+    }
 
-.title-with-lines::before,
-.title-with-lines::after{
-  content: "";
-  flex: 1;                  
-  border-bottom: 1px solid #228B22;  
-  height: 0;
-}
+   
+    .feedbackIcons{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      margin: 16px 0 10px;
+    }
 
-#recipeimg{
-height: 350px;
-width: 280px;
-margin-left :60%;
-margin-top: 10%;
-border-radius: 10px;
- transition: 0.3s ease;
-}
-#recipeimg:hover{
- filter: none;
-  transform: scale(1.15);
-}
+    .feedbackIcons img{
+      width: 38px;
+      height: 38px;
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
 
-.feedbackIcons{
-  display: flex;
-  height:30px;
-  width:30px;
-  margin-left: 83%;
-  margin-bottom: 2%;
-  flex-direction: row;
-  justify-content: space-around;
-  gap: 50%;
+    .feedbackIcons img:hover{
+      transform: scale(1.15);
+    }
 
-}
+    
+    .recipe-media{
+      display: flex;
+      justify-content: center;
+      margin: 10px 0 26px;
+    }
 
-.feedbackIcons img{
-     transition: 0.3s ease;
-}
+    #recipeimg{
+      width: 320px;
+      height: auto;
+      border-radius: 14px;
+      transition: 0.3s ease;
+    }
 
-.feedbackIcons img:hover{
-filter: none;
-transform: scale(1.15);
-}
+    #recipeimg:hover{
+      transform: scale(1.05);
+    }
 
-.recipe-media{
-  position: absolute;
-  top:230px;
-  right:250px;
-}
+    video{
+      margin-top: -40px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+    }
 
-/*ul {
-  
-  list-style-image: url("star.png");
-  list-style-position: outside;
-  padding-left: 40%;
-  height: 20px;
-  width:20px;
-}*/
+    #recipeCreator{
+      height: 400px;
+      width: 300px;
+      margin: 18px auto 0;
+      display: block;
+      border-radius: 10%;
+      transition: 0.3s ease;
+    }
 
-video{
-  margin-top: -4%;
-}
+    #recipeCreator:hover{
+      transform: scale(1.05);
+    }
 
-#recipeCreator{
-height : 400px;
-width:300px;
-margin-left: 40%;
-border-radius: 10%;
- transition: 0.3s ease;
-}
+    #creatore-name{
+      text-align: center;
+      font-size: 200%;
+      font-style: oblique;
+      margin: 12px 0 0;
+    }
 
-#recipeCreator:hover{
-filter: none;
-transform: scale(1.15);
-}
+    h2{
+      margin-top: 48px;
+      margin-bottom: 30px;
+      margin-left: 7px;
+    }
 
-#creatore-name{
-  margin-left: 47%;
-  font-size:200%;
-  font-style: oblique;
-}
-h2{
-  margin-top: 48px;
-  margin-bottom: 30px;
-  margin-left: 7px;
-}
-.reviews {
+    .reviews {
       text-align: center;
       padding: 60px 15px;
       background-color: #fff;
@@ -124,12 +117,11 @@ h2{
     }
 
     .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 25px 40px;
-      justify-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 900px;
+      margin: 0;
     }
 
     .review-card {
@@ -140,8 +132,9 @@ h2{
       display: flex;
       align-items: flex-start;
       gap: 18px;
-      width: 95%;
-      max-width: 560px;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
       height: 140px;
       transition: 0.3s ease;
     }
@@ -150,7 +143,6 @@ h2{
       transform: translateY(-6px);
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
     }
-
 
     .review-content {
       display: flex;
@@ -174,202 +166,284 @@ h2{
       padding-top: 6px;
     }
 
-
     .client-name {
       font-weight: 600;
       font-size: 0.95rem;
       color: #000;
     }
 
-    .stars {
-      color: #c5a572;
-      font-size: 0.9rem;
+    .review-date{
+      font-size: 0.85rem;
+      color:#666;
+      font-weight:500;
+      white-space: nowrap;
     }
 
-    .reviews {
-      text-align: center;
-      margin-bottom: 40px;
+#RecipeDetails,#recipeIng,#recipeInst{
+  font-family:"Georgia", serif;
+  font-size: 18px;
+}
+
+    .recipe-page{
+      max-width: 1100px;
+      margin: 20px auto 40px;
+      padding: 28px;
+      background: rgba(255,255,255,0.75);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      backdrop-filter: blur(6px);
     }
 
-    .reviews h2,
-    .reviews p {
-      background: transparent;
-      box-shadow: none;
-      border: none;
-      margin-bottom: 10px;
+    .section-card{
+      background: rgba(255,255,255,0.85);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin: 30px 0;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.05);
     }
 
-    .reviews-grid {
-      margin-top: 40px;
+    
+    .section-title{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+      color: #2e7d32;
     }
-	
+
+    .section-title::before{
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #2e7d32;
+      flex: 0 0 10px;
+    }
+
+    #recipeInst{
+      padding-left: 18px;
+    }
+
+    #recipeInst li{
+      margin: 14px 0;
+      padding: 14px 14px;
+      border-radius: 14px;
+      background: rgba(46,125,50,0.06);
+      border: 1px solid rgba(46,125,50,0.15);
+      line-height: 1.7;
+      list-style-position: inside;
+    }
+    
+    .comment-form{
+  max-width: 900px;
+  margin: 0 auto 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-row{
+  display: flex;
+  gap: 12px;
+}
+
+.comment-form input,
+.comment-form textarea{
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: rgba(255,255,255,0.9);
+  outline: none;
+  font-size: 0.95rem;
+}
+
+.comment-form input:focus,
+.comment-form textarea:focus{
+  border-color: rgba(46,125,50,0.55);
+  box-shadow: 0 0 0 3px rgba(46,125,50,0.12);
+}
+
+.comment-btn{
+  align-self: flex-start;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 12px;
+  background: #2e7d32;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.comment-btn:hover{
+  transform: translateY(-2px);
+}
+
 
   </style>
 </head>
+
 <body>
-    <header class="site-header">
-        <div class="container nav">
-            <div class="logo-area">
-                 <img src="logoremoved.png" alt="Nurish logo">
-              
-            <p id ='VMstatement'><em>Healthy never tasted this fun...</em>  </p>
-            </div>
+<header class="site-header">
+  <div class="container nav">
+    <div class="logo-area">
+      <img src="logoremoved.png" alt="Nurish logo">
+      <p id="VMstatement"><em>Healthy never tasted this fun...</em></p>
+    </div>
 
+    <nav class="main-nav" aria-label="Primary"></nav>
 
-            <nav class="main-nav" aria-label="Primary"> </nav>
-
-             <div class="nav-actions">
-                 <input id="site-search" type="search" placeholder="Search…" >
-                 <a class="avatar" href="#" aria-label="Profile">
-                 <span aria-hidden="true">👤</span>
-                 </a>
-             </div>
-        </div>
-    </header>
-
+    <div class="nav-actions">
+      <input id="site-search" type="search" placeholder="Search…" >
+      <a class="avatar" href="#" aria-label="Profile">
+        <span aria-hidden="true">👤</span>
+      </a>
+    </div>
+  </div>
+</header>
 
 <h1 class="title-with-lines"><em>Banana pancake</em></h1>
 
-<h2> <em>Recipe's Details</em> </h4>
-  <p> category: Gluten-free <br> <br> desciption : these 3 ingredient banana pancakes are
-  quick , healthy  and ready in minutes !
-<br> they are perfect for busr mornings , toddlers or meal prep . on top of that it's vegan , gluten-free , naturally sweetened 
-and oil-free! </p>
 
-<br>
-
-  <h2> <em>Recipe's ingredients :</em></h2>
-
-  <ul>
-<li>1 Banana</li>
-<li>3/4 cup of Oats</li>
-<li>1/2 cup of Non-Dairy Milk</li>
-<li> Blueberries the the quantity is based on your personal prefrence  </li>
-</ul>
-
-<br>
-
-  <h2> <em>Recipe's ingredients :</em></h2>
-
-  <ol>
-    <li> first <b> blend the ingredients : </b> Add the banana, oats, and non-dairy milk to a blender.
-       Toss in any optional add-ins, like cinnamon or vanilla extract. Blend until smooth. 
-       If you’re using blueberries or chocolate chips, gently stir them in after blending.</li>
-
-       <li> <b> Cook the Pancakes :</b>Heat a non-stick skillet over medium-low heat. Pour the batter into small pancakes (about 1/4 cup each). Cook for 2–3 minutes, 
-        or until bubbles form on the surface and the edges start to set.</li>
-
-        <li> <b> Flip & Finish:</b>
-Flip the pancakes and cook for another 1–2 minutes, until golden brown and cooked through. 
-Serve warm with your favorite toppings. Enjoy!
-        </li>
-  </ol>
-
-  <br>
-
-  <h2> <em> Recipe's video : </em></h2>
-  <video src ='recipe.mp4' width="550" height="450" poster="thumbnail.png" controls>
-    
-  </video>
-
-<h2> <em> Recipe's creator : </em></h2>
-<img src="creatorPic.png" alt="Recipe's creator picture" id="recipeCreator">
-<p id="creatore-name"> Megan</p>
-
-
-
-
-
-
-  <div class ="recipe-media">
 <div class="feedbackIcons">
-  <img src="likeicon.png" alt ="like recipe icon">
-  <img src="favouritesicon.png" alt="add to favourit icon">
-  <img src="reporticon.png" alt="report a recipe">
-</div>
-
-<img src="pancake.jpeg" alt="Recipe photo" id="recipeimg">
+  <img src="like2.png" alt="like recipe icon">
+  <img src="favorite2.png" alt="add to favourit icon">
+  <img src="report2.png" alt="report a recipe">
 </div>
 
 
+<div class="recipe-media">
+  <img src="pancake.jpeg" alt="Recipe photo" id="recipeimg">
+</div>
 
-  
-  <section class="reviews">
-    <h2>Comments</h2>
-    <p>we would love to hear about youe experience !</p>
+<div class="recipe-page">
 
-    <div class="reviews-grid">
+  <div class="section-card">
+    <h2 class="section-title"><em>Recipe's Details</em></h2>
+    <p id="RecipeDetails">
+      Category: Gluten-free <br><br>
+      Desciption : these 3 ingredient banana pancakes are quick , healthy and ready in minutes !
+      <br>
+      they are perfect for busy mornings , toddlers or meal prep . on top of that it's vegan , gluten-free , naturally sweetened
+      and oil-free!
+    </p>
+  </div>
 
-      <!-- Review 1 -->
-      <div class="review-card">
-    
-        <div class="review-content">
-          <p class="review-text">
-            "These banana pancakes have been at the top of my breakfast list for a while now.
-  They’re quick and easy to make, and they taste absolutely delicious!"
-          </p>
-          <div class="review-footer">
-            <h4 class="client-name">Amal Fahad</h4>
-            
-          </div>
-        </div>
-      </div>
+  <div class="section-card">
+    <h2 class="section-title"><em>Recipe's ingredients :</em></h2>
 
-      <!-- Review 2 -->
-      <div class="review-card">
-      
-        <div class="review-content">
-          <p class="review-text">
-            "Wow , it looks very tasty i need to try it ASAP."
-          </p>
-          <div class="review-footer">
-            <h4 class="client-name">Haya Abdulaziz</h4>
-        
-          </div>
-        </div>
-      </div>
-
-      <!-- Review 3 -->
-      <div class="review-card">
-        
-        <div class="review-content">
-          <p class="review-text">
-            "thanks for sharing the recipe! Looking forward to more healthy and tasty dishes."
-          </p>
-          <div class="review-footer">
-            <h4 class="client-name">Laila omar</h4>
-          
-          </div>
-        </div>
-      </div>
-
-      <!-- Review 4 -->
-      <div class="review-card">
-        
-        <div class="review-content">
-          <p class="review-text">
-           "these pancakes are one of the most delicious Non-Dairy recipes , if you haven't try them yet what are you waiting for?"
-          </p>
-          <div class="review-footer">
-            <h4 class="client-name">Sara Mohammed</h4>
-           
-          </div>
-        </div>
-      </div>
-
+    <div class="ing-box">
+      <ul id="recipeIng">
+        <li>1 Banana</li>
+        <li>3/4 cup of Oats</li>
+        <li>1/2 cup of Non-Dairy Milk</li>
+        <li>Blueberries, the quantity is based on your personal prefrence</li>
+      </ul>
     </div>
-  </section>
 
+    <h2 class="section-title"><em>Recipe's instructions :</em></h2>
 
+    <ol id="recipeInst">
+      <li>
+        First <b>blend the ingredients :</b> Add the banana, oats, and non-dairy milk to a blender.
+        Toss in any optional add-ins, like cinnamon or vanilla extract. Blend until smooth.
+        If you’re using blueberries or chocolate chips, gently stir them in after blending.
+      </li>
 
+      <li>
+        <b>Cook the Pancakes :</b> Heat a non-stick skillet over medium-low heat.
+        Pour the batter into small pancakes (about 1/4 cup each). Cook for 2–3 minutes,
+        or until bubbles form on the surface and the edges start to set.
+      </li>
 
+      <li>
+        <b>Flip & Finish:</b> Flip the pancakes and cook for another 1–2 minutes, until golden brown and cooked through.
+        Serve warm with your favorite toppings. Enjoy!
+      </li>
+    </ol>
 
+    <h2 class="section-title"><em>Recipe's video :</em></h2>
+    <video src="recipe.mp4" width="550" height="450" poster="thumbnail.png" controls></video>
 
+    <h2 class="section-title"><em>Recipe's creator :</em></h2>
+    <img src="creatorPic.png" alt="Recipe's creator picture" id="recipeCreator">
+    <p id="creatore-name">Megan</p>
+  </div>
 
+</div>
 
+<section class="reviews">
+  <h2>Comments</h2>
+  <p>we would love to hear about youe experience !</p>
 
-    
- <footer class="site-footer">
+  <div class="reviews-grid">
+
+    <div class="review-card" data-date="2026-01-3">
+      <div class="review-content">
+        <p class="review-text">
+          "These banana pancakes have been at the top of my breakfast list for a while now.
+          They’re quick and easy to make, and they taste absolutely delicious!"
+        </p>
+        <div class="review-footer">
+          <h4 class="client-name">Amal Fahad</h4>
+          <span class="review-date">3-1-2026</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card" data-date="2026-01-9">
+      <div class="review-content">
+        <p class="review-text">
+          "Wow , it looks very tasty i need to try it ASAP."
+        </p>
+        <div class="review-footer">
+          <h4 class="client-name">Haya Abdulaziz</h4>
+          <span class="review-date">9-1-2026</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card" data-date="2026-01-19">
+      <div class="review-content">
+        <p class="review-text">
+          "thanks for sharing the recipe! Looking forward to more healthy and tasty dishes."
+        </p>
+        <div class="review-footer">
+          <h4 class="client-name">Laila omar</h4>
+          <span class="review-date">19-1-2026</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card" data-date="2026-01-24">
+      <div class="review-content">
+        <p class="review-text">
+          "these pancakes are one of the most delicious Non-Dairy recipes , if you haven't try them yet what are you waiting for?"
+        </p>
+        <div class="review-footer">
+          <h4 class="client-name">Sara Mohammed</h4>
+          <span class="review-date">24-1-2026</span>
+        </div>
+   
+      </div>
+    </div>
+     <form class="comment-form" id="commentForm">
+  <div class="form-row">
+    <input type="text" id="commentName" placeholder="Your name" required>
+    <input type="date" id="commentDate" required>
+  </div>
+
+  <textarea id="commentText" rows="4" placeholder="Write your comment..." required></textarea>
+
+  <button type="submit" class="comment-btn">Post Comment</button>
+</form>
+  </div>
+</section>
+
+<footer class="site-footer">
   <div class="footer-container">
     <div class="footer-left">
       <h3>Contact Us</h3>
@@ -384,7 +458,7 @@ Serve warm with your favorite toppings. Enjoy!
     <div class="footer-right">
       <h3>Follow Us</h3>
       <div class="social-icons">
-           <a href="#"><img src="instagram.png" alt="Instagram"></a>
+        <a href="#"><img src="instagram.png" alt="Instagram"></a>
         <a href="#"><img src="X.png" alt="X"></a>
         <a href="#"><img src="facebook.png" alt="Facebook"></a>
       </div>
@@ -392,7 +466,17 @@ Serve warm with your favorite toppings. Enjoy!
   </div>
 </footer>
 
+<script>
+  const grid = document.querySelector('.reviews-grid');
+  const cards = Array.from(grid.querySelectorAll('.review-card'));
+
+ 
+  cards.sort((a, b) => new Date(b.dataset.date) - new Date(a.dataset.date));
+  cards.forEach(card => grid.appendChild(card));
+
+  
+  
+</script>
+
 </body>
-
 </html>
-
